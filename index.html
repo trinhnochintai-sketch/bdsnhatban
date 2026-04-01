@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ANYTHING不動産 — Tư vấn bất động sản Nhật Bản cho người Việt. Hỗ trợ vay ngân hàng kể cả khi chưa có vĩnh trú.">
+<title>ANYTHING不動産 | BĐS Nhật Bản cho người Việt</title>
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--dark:#0e0e0e;--dark2:#161616;--dark3:#242424;--gold:#c9a84c;--gold2:#e8d4a0;--gold3:#8a6f2e;--cream:#f5f0e8;--muted:rgba(229,212,160,0.45);--line:rgba(201,168,76,0.18);--line2:rgba(201,168,76,0.35)}
+body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh}
+
+/* NAV — nền sáng hơn để tab nổi bật */
+.nav{display:flex;overflow-x:auto;border-bottom:2px solid var(--gold3);scrollbar-width:none;background:var(--dark3)}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{flex-shrink:0;padding:14px 16px;font-size:10px;letter-spacing:0.15em;color:rgba(229,212,160,0.55);text-transform:uppercase;cursor:pointer;border:none;background:none;font-family:'DM Sans',sans-serif;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .2s,background .2s,border-color .2s;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.nav-btn:hover{color:var(--gold2);background:rgba(201,168,76,0.05)}
+.nav-btn.active{color:#fff;background:rgba(201,168,76,0.1);border-bottom-color:var(--gold)}
+.nav-icon{width:13px;height:13px;flex-shrink:0;opacity:0.8}
+.nav-btn.active .nav-icon{opacity:1}
+.section{display:none}.section.active{display:block}
+
+/* HEADER */
+.hd{padding:28px 24px 22px;text-align:center;border-bottom:1px solid var(--line);background:var(--dark2)}
+.hd-eyebrow{font-size:9px;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.hd-name{font-family:'Noto Serif JP',serif;font-size:clamp(22px,6vw,36px);font-weight:400;letter-spacing:0.12em;line-height:1.2;color:#fff}
+.hd-name span{color:var(--gold)}
+.hd-sub{font-size:10px;letter-spacing:0.16em;color:var(--muted);margin-top:10px;text-transform:uppercase}
+.ornament{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:16px}
+.orn-line{width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold3))}
+.orn-line.r{background:linear-gradient(90deg,var(--gold3),transparent)}
+.orn-d{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+
+/* HERO */
+.hero{background:var(--dark);padding:28px 24px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero::before{content:'不動産';position:absolute;font-family:'Noto Serif JP',serif;font-size:100px;color:rgba(201,168,76,0.04);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
+.hero-label{font-size:9px;letter-spacing:0.3em;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.hero-label::before{content:'';width:20px;height:1px;background:var(--gold);opacity:.5}
+.hero-h{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,5.5vw,32px);font-weight:300;line-height:1.45;color:var(--gold2);margin-bottom:10px}
+.hero-h em{font-style:italic;color:var(--gold)}
+.hero-p{font-size:12px;color:var(--muted);line-height:1.9;letter-spacing:0.05em}
+
+/* STATS */
+.stats{display:flex;border-bottom:1px solid var(--line)}
+.stat{flex:1;padding:16px 8px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold);line-height:1}
+.stat-l{font-size:9px;letter-spacing:.12em;color:var(--muted);margin-top:4px;text-transform:uppercase}
+
+.srule{display:flex;align-items:center;gap:10px;padding:20px 24px 14px}
+.srule-line{flex:1;height:1px;background:var(--line)}
+.srule-txt{font-size:9px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
+
+/* CARDS */
+.cards{padding:0 16px 8px;display:flex;flex-direction:column;gap:12px}
+.card{background:var(--dark2);border:1px solid var(--line);position:relative;cursor:pointer;overflow:hidden;transition:border-color .2s}
+.card:hover{border-color:var(--line2)}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--gold),var(--gold3))}
+.card-inner{padding:18px 18px 18px 22px}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.card-loc{font-size:9px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:5px}
+.card-badge{font-size:8px;letter-spacing:.12em;padding:3px 8px;border:1px solid var(--gold3);color:var(--gold);text-transform:uppercase}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:300;color:#fff;line-height:1.4;margin-bottom:10px}
+.card-specs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.spec{font-size:10px;color:var(--muted);background:rgba(201,168,76,0.07);padding:4px 10px;letter-spacing:.05em;border:1px solid var(--line);display:flex;align-items:center;gap:4px}
+.card-footer{display:flex;align-items:flex-end;justify-content:space-between}
+.card-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--gold);line-height:1}
+.card-price-sub{font-size:9px;color:var(--muted);margin-top:3px}
+.card-btn{font-size:10px;letter-spacing:.12em;color:var(--gold);border:1px solid var(--gold3);padding:7px 14px;text-transform:uppercase;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s,color .15s}
+.card-btn:hover{background:var(--gold);color:var(--dark)}
+
+/* ABOUT */
+.about-hero{padding:28px 24px;border-bottom:1px solid var(--line);background:var(--dark2)}
+.avatar-ring{width:92px;height:92px;border-radius:50%;border:1px solid var(--gold3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative}
+.avatar-placeholder{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--gold3),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--dark)}
+.avatar-add{position:absolute;bottom:0;right:0;width:22px;height:22px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--dark);font-weight:600}
+.about-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#fff;text-align:center;margin-bottom:4px}
+.about-role{font-size:10px;letter-spacing:.18em;color:var(--gold);text-align:center;text-transform:uppercase;margin-bottom:14px}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.atag{font-size:10px;padding:4px 12px;border:1px solid var(--line2);color:var(--gold2);letter-spacing:.06em;display:flex;align-items:center;gap:5px}
+.about-stats{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-stat{flex:1;padding:16px 8px;text-align:center;border-right:1px solid var(--line)}
+.about-stat:last-child{border-right:none}
+.about-stat-n{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold)}
+.about-stat-l{font-size:9px;color:var(--muted);margin-top:3px;letter-spacing:.1em}
+.story-block{padding:24px}
+.story-label{font-size:9px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.story-label::before{content:'';width:16px;height:1px;background:var(--gold);opacity:.5}
+.story-text{font-size:13px;color:var(--muted);line-height:2.0;letter-spacing:.05em}
+.story-text strong{color:var(--cream);font-weight:400}
+.skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 24px 24px}
+.skill-item{background:var(--dark2);border:1px solid var(--line);padding:16px 14px}
+.skill-ico-wrap{width:32px;height:32px;border:1px solid var(--gold3);display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.skill-h{font-size:11px;color:var(--cream);letter-spacing:.06em;margin-bottom:4px}
+.skill-p{font-size:10px;color:var(--muted);line-height:1.6}
+
+/* SURVEY */
+.survey-wrap{padding:20px 16px}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#fff;margin-bottom:6px}
+.page-sub{font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:20px}
+.q-block{background:var(--dark2);border:1px solid var(--line);padding:18px;margin-bottom:12px}
+.q-num{font-size:9px;letter-spacing:.2em;color:var(--gold);margin-bottom:6px;text-transform:uppercase}
+.q-text{font-size:14px;color:#fff;margin-bottom:14px;line-height:1.5;font-weight:400}
+.options{display:flex;flex-direction:column;gap:8px}
+.opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--line);cursor:pointer;transition:border-color .15s;font-size:12px;color:var(--cream);letter-spacing:.04em}
+.opt:hover{border-color:var(--line2)}
+.opt.selected{border-color:var(--gold);background:rgba(201,168,76,0.08)}
+.opt-dot{width:14px;height:14px;border-radius:50%;border:1px solid var(--gold3);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.opt-dot-inner{width:6px;height:6px;border-radius:50%;background:var(--dark);display:none}
+.opt.selected .opt-dot{background:var(--gold)}
+.opt.selected .opt-dot-inner{display:block}
+.action-btn{width:100%;padding:15px;background:var(--gold);color:var(--dark);font-size:12px;letter-spacing:.2em;text-transform:uppercase;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;margin-top:8px;transition:opacity .15s}
+.action-btn:hover{opacity:.88}
+.result-box{display:none;background:var(--dark2);border:1px solid var(--line2);padding:28px 22px;text-align:center;margin-top:12px}
+.result-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;margin-bottom:8px}
+.result-text{font-size:12px;color:var(--muted);line-height:1.8}
+
+/* FORM */
+.form-wrap{padding:20px 16px}
+.f-group{margin-bottom:12px}
+.f-label{font-size:10px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:6px}
+.f-input{width:100%;background:var(--dark2);border:1px solid var(--line);color:var(--cream);padding:13px 16px;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:300;outline:none;transition:border-color .2s}
+.f-input:focus{border-color:var(--gold)}
+.f-input::placeholder{color:rgba(229,212,160,0.2)}
+textarea.f-input{resize:vertical;min-height:90px;line-height:1.7}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form-note{font-size:10px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.7}
+.success-box{display:none;background:var(--dark2);border:1px solid var(--line2);padding:28px 22px;text-align:center;margin-top:12px}
+
+/* BUTTONS */
+.btn-fb{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#1877F2;color:#fff;font-size:13px;letter-spacing:.08em;text-decoration:none;font-family:'DM Sans',sans-serif;transition:opacity .15s;margin-bottom:10px}
+.btn-fb:hover{opacity:.88}
+.btn-phone{display:flex;align-items:center;gap:12px;padding:14px 18px;background:transparent;color:var(--cream);font-size:13px;letter-spacing:.08em;text-decoration:none;border:1px solid var(--line2);font-family:'DM Sans',sans-serif;transition:border-color .15s}
+.btn-phone:hover{border-color:var(--gold)}
+.btn-tiktok{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#010101;color:#fff;font-size:13px;letter-spacing:.08em;text-decoration:none;font-family:'DM Sans',sans-serif;transition:opacity .15s;border:1px solid rgba(255,255,255,0.1)}
+.btn-tiktok:hover{opacity:.88}
+.btn-ico-wrap{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.btn-arr{margin-left:auto;opacity:.5}
+
+/* FOOTER */
+.ft{border-top:1px solid var(--line);padding:20px 24px;display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.ft-brand{font-family:'Noto Serif JP',serif;font-size:12px;color:var(--gold);letter-spacing:.1em}
+.ft-copy{font-size:9px;color:rgba(229,212,160,0.3);letter-spacing:.1em}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:100;align-items:flex-end}
+.modal-bg.open{display:flex}
+.modal{background:var(--dark2);width:100%;padding:24px 22px 40px;max-height:85vh;overflow-y:auto;border-top:1px solid var(--line2)}
+.modal-bar{width:36px;height:2px;background:var(--line2);margin:0 auto 20px}
+.modal-close{float:right;background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;margin-top:-4px}
+.modal-tag{font-size:9px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:#fff;padding-right:28px;margin-bottom:4px;line-height:1.4}
+.modal-loc{font-size:10px;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:5px}
+.modal-price{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold);font-weight:300;margin-bottom:3px}
+.modal-vnd{font-size:10px;color:var(--muted);margin-bottom:14px}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:14px}
+.modal-spec{background:var(--dark2);padding:10px 12px}
+.msl{font-size:9px;letter-spacing:.12em;color:var(--muted);margin-bottom:3px;text-transform:uppercase}
+.msv{font-size:13px;color:var(--cream)}
+.modal-desc{font-size:12px;color:var(--muted);line-height:2;border-left:2px solid var(--gold3);padding-left:14px;margin-bottom:20px}
+
+/* ADMIN */
+.admin-wrap{padding:20px 16px}
+.admin-login{background:var(--dark2);border:1px solid var(--line);padding:28px 22px;margin-bottom:16px}
+.admin-header{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;margin-bottom:4px}
+.admin-sub{font-size:11px;color:var(--muted);margin-bottom:18px}
+.admin-form{background:var(--dark2);border:1px solid var(--line);padding:20px}
+.admin-section-title{font-size:9px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin:16px 0 10px;display:flex;align-items:center;gap:8px}
+.admin-section-title::before{content:'';width:12px;height:1px;background:var(--gold);opacity:.5}
+.admin-listing-card{background:var(--dark3);border:1px solid var(--line);padding:14px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.admin-listing-info{flex:1}
+.admin-listing-title{font-size:13px;color:var(--cream);margin-bottom:3px}
+.admin-listing-meta{font-size:10px;color:var(--muted)}
+.admin-listing-actions{display:flex;gap:8px;flex-shrink:0}
+.btn-del{font-size:10px;padding:5px 10px;border:1px solid rgba(220,80,80,0.4);color:rgba(220,80,80,0.8);background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.btn-del:hover{background:rgba(220,80,80,0.1);border-color:rgba(220,80,80,0.7)}
+.btn-toggle{font-size:10px;padding:5px 10px;border:1px solid var(--gold3);color:var(--gold);background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.btn-toggle:hover{background:rgba(201,168,76,0.08)}
+.admin-empty{font-size:12px;color:var(--muted);text-align:center;padding:20px;border:1px dashed var(--line)}
+.badge-active{font-size:9px;padding:2px 7px;background:rgba(80,200,120,0.15);border:1px solid rgba(80,200,120,0.3);color:rgba(80,200,120,0.9);letter-spacing:.05em}
+.badge-inactive{font-size:9px;padding:2px 7px;background:rgba(200,80,80,0.1);border:1px solid rgba(200,80,80,0.25);color:rgba(200,80,80,0.7);letter-spacing:.05em}
+
+
+
+
+
+
+
+
+.card-img{width:100%;height:180px;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+.card-no-img{width:100%;height:100px;background:var(--dark3);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
+.modal-imgs{margin-top:20px;border-top:1px solid var(--line);padding-top:14px}
+.modal-imgs-title{font-size:9px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.modal-imgs-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.modal-imgs-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);cursor:pointer}
+.modal-imgs-grid img:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.img-fs{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:300;align-items:center;justify-content:center}
+.img-fs.open{display:flex}
+.img-fs img{max-width:100%;max-height:100vh;object-fit:contain}
+.img-fs-close{position:absolute;top:16px;right:16px;color:#fff;font-size:24px;cursor:pointer;background:none;border:none;z-index:301}
+
+/* BLOG */
+.blog-wrap{padding:20px 16px}
+.blog-hero-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#fff;margin-bottom:6px}
+.blog-hero-sub{font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:16px}
+.blog-cats{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-bottom:16px}
+.blog-cats::-webkit-scrollbar{display:none}
+.blog-cat{flex-shrink:0;font-size:10px;letter-spacing:.12em;padding:6px 14px;border:1px solid var(--line);color:var(--muted);background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;text-transform:uppercase}
+.blog-cat.active{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,0.08)}
+.blog-grid{display:flex;flex-direction:column;gap:10px}
+.blog-card{background:var(--dark2);border:1px solid var(--line);display:flex;cursor:pointer;transition:border-color .2s;overflow:hidden}
+.blog-card:hover{border-color:var(--line2)}
+.blog-card-img{width:100px;height:90px;object-fit:cover;flex-shrink:0}
+.blog-card-img-placeholder{width:100px;height:90px;background:var(--dark3);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.blog-card-body{padding:12px 14px;flex:1;min-width:0}
+.blog-card-cat{font-size:9px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.blog-card-title{font-size:13px;color:var(--cream);line-height:1.4;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.blog-card-date{font-size:10px;color:rgba(229,212,160,0.3)}
+.blog-empty{text-align:center;padding:40px 20px;color:var(--muted);font-size:12px;border:1px dashed var(--line)}
+.blog-modal-img{width:100%;max-height:220px;object-fit:cover;display:block}
+.blog-modal-cat{font-size:9px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;padding-top:16px}
+.blog-modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#fff;line-height:1.4;margin-bottom:6px}
+.blog-modal-date{font-size:10px;color:rgba(229,212,160,0.35);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.blog-modal-content{font-size:13px;color:var(--muted);line-height:2;letter-spacing:.03em}
+.blog-modal-content strong{color:var(--cream);font-weight:400}
+
+.blog-modal-imgs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.blog-modal-imgs img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);cursor:pointer}
+.blog-modal-imgs img:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.blog-modal-imgs-title{font-size:9px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;grid-column:1/-1}
+</style>
+
+<!-- HEADER -->
+<div class="hd">
+  <div class="hd-eyebrow">BĐS Nhật Bản · Dành cho người Việt</div>
+  <div class="hd-name">ANYTHING <span>不動産</span></div>
+  <div class="hd-sub">Nguyễn Trinh · 在日ベトナム人のための不動産案内</div>
+  <div class="ornament">
+    <div class="orn-line"></div><div class="orn-d"></div><div class="orn-line r"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" onclick="showTab('listing',this)">
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 7L8 2l6 5v7H2z"/><path d="M6 14V9h4v5"/></svg>
+    Tin BĐS
+  </button>
+  <button class="nav-btn" onclick="showTab('about',this)">
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="5" r="3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+    Về tôi
+  </button>
+  <button class="nav-btn" onclick="showTab('form',this)">
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 4h12v9a1 1 0 01-1 1H3a1 1 0 01-1-1V4z"/><path d="M2 4l6 5 6-5"/></svg>
+    Đăng ký tư vấn
+  </button>
+  <button class="nav-btn" onclick="showTab('blog',this)">
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 5h6M5 8h6M5 11h4"/></svg>
+    Kiến thức BĐS
+  </button>
+  <button class="nav-btn" onclick="showTab('blogtab',this)">
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 3h12v2H2zM2 7h8v2H2zM2 11h10v2H2z"/></svg>
+    Blog
+  </button>
+  <button class="nav-btn" onclick="showAdminTab(this)" id="admin-nav-btn" style="display:none">
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="5" r="2.5"/><path d="M2 13c0-2.8 2.7-5 6-5s6 2.2 6 5"/><path d="M11 2l1 1-4 4-2-2 1-1 1 1z"/></svg>
+    Admin
+  </button>
+</div>
+
+<!-- LISTING -->
+<div id="listing" class="section active">
+  <div class="hero">
+    <div class="hero-label">Cơ hội sở hữu</div>
+    <div class="hero-h">Mua nhà tại Nhật — <em>không còn là giấc mơ</em></div>
+    <div class="hero-p">Đồng hành cùng cộng đồng người Việt tại Nhật.<br>Minh bạch · Tin cậy · Tận tâm từ A đến Z.</div>
+  </div>
+  <div style="background:linear-gradient(135deg,#1a1200,#2a1e00);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:16px 20px;display:flex;align-items:flex-start;gap:14px">
+    <div style="flex-shrink:0;width:38px;height:38px;background:rgba(201,168,76,0.15);border:1px solid var(--gold3);border-radius:50%;display:flex;align-items:center;justify-content:center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+    </div>
+    <div>
+      <div style="font-size:10px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:5px">Hỗ trợ vay ngân hàng</div>
+      <div style="font-size:14px;color:#fff;font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.5;margin-bottom:6px">Không có vĩnh trú? <em style="color:var(--gold)">Vẫn có thể vay được.</em></div>
+      <div style="font-size:11px;color:rgba(229,212,160,0.65);line-height:1.75">ANYTHING 不動産 có quan hệ hợp tác với <strong style="color:var(--gold2)">nhiều ngân hàng tại Nhật</strong>, hỗ trợ người nước ngoài — kể cả khi chưa có thường trú (永住権). Chúng tôi đồng hành từ tư vấn đến hoàn tất hồ sơ vay.</div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">400+</div><div class="stat-l">Tin đăng</div></div>
+    <div class="stat"><div class="stat-n">5.0</div><div class="stat-l">Đánh giá</div></div>
+    <div class="stat"><div class="stat-n">6+ năm</div><div class="stat-l">Kinh nghiệm</div></div>
+  </div>
+  <div class="srule"><div class="srule-line"></div><div class="srule-txt">Tin nổi bật</div><div class="srule-line"></div></div>
+  <div class="cards">
+    <div class="card" onclick="openModal(0)">
+      <div class="card-inner">
+        <div class="card-header">
+          <div class="card-loc"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M8 2C5.8 2 4 3.8 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="6" r="1.5"/></svg>Osaka · Namba</div>
+          <div class="card-badge">Hot</div>
+        </div>
+        <div class="card-title">Nhà phố 2 tầng gần trung tâm Namba</div>
+        <div class="card-specs">
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="2" width="12" height="12" rx="1"/></svg>85 m²</div>
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 7L8 2l6 5v7H2z"/></svg>3LDK</div>
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="4" width="12" height="10" rx="1"/><path d="M5 4V2M11 4V2"/></svg>2019</div>
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2"/></svg>5 phút</div>
+        </div>
+        <div class="card-footer">
+          <div><div class="card-price">¥ 4,500万</div><div class="card-price-sub">≈ 700 triệu VNĐ</div></div>
+          <button class="card-btn" onclick="event.stopPropagation();openModal(0)">Chi tiết →</button>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="openModal(1)">
+      <div class="card-inner">
+        <div class="card-header">
+          <div class="card-loc"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M8 2C5.8 2 4 3.8 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="6" r="1.5"/></svg>Kobe · Tarumi</div>
+          <div class="card-badge">Mới</div>
+        </div>
+        <div class="card-title">Nhà vườn view biển yên tĩnh Kobe</div>
+        <div class="card-specs">
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="2" width="12" height="12" rx="1"/></svg>120 m²</div>
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 7L8 2l6 5v7H2z"/></svg>4LDK</div>
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="4" width="12" height="10" rx="1"/><path d="M5 4V2M11 4V2"/></svg>2015</div>
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 12c2-3 8-3 12 0M8 3C5.5 3 4 5 4 7s1.5 3 4 3 4-1 4-3-1.5-4-4-4z"/></svg>View biển</div>
+        </div>
+        <div class="card-footer">
+          <div><div class="card-price">¥ 5,800万</div><div class="card-price-sub">≈ 900 triệu VNĐ</div></div>
+          <button class="card-btn" onclick="event.stopPropagation();openModal(1)">Chi tiết →</button>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="openModal(2)">
+      <div class="card-inner">
+        <div class="card-header">
+          <div class="card-loc"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M8 2C5.8 2 4 3.8 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="6" r="1.5"/></svg>Tokyo · Nerima</div>
+          <div class="card-badge">VIP</div>
+        </div>
+        <div class="card-title">Đất thổ cư 100m² khu yên tĩnh Tokyo</div>
+        <div class="card-specs">
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="2" width="12" height="12" rx="1"/></svg>100 m²</div>
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 14h12M4 14V8l4-4 4 4v6"/></svg>Đất trống</div>
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 2h4v4l2 2-2 2v4H6V10L4 8l2-2V2z"/></svg>Sổ đỏ</div>
+          <div class="spec"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2"/></svg>10 phút</div>
+        </div>
+        <div class="card-footer">
+          <div><div class="card-price">¥ 6,200万</div><div class="card-price-sub">≈ 960 triệu VNĐ</div></div>
+          <button class="card-btn" onclick="event.stopPropagation();openModal(2)">Chi tiết →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:16px">
+    <a href="https://www.facebook.com/trinhnguyenbds.jp" class="btn-fb"><div class="btn-ico-wrap" style="background:rgba(255,255,255,0.15)"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><span>Nhắn Facebook</span><span class="btn-arr">→</span></a>
+    <a href="https://www.tiktok.com/@bdsnhatban.trinhnguyen" target="_blank" class="btn-tiktok"><div class="btn-ico-wrap" style="background:rgba(255,255,255,0.1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></div><span>TikTok</span><span class="btn-arr">→</span></a>
+    <a href="tel:070-9307-5678" class="btn-phone"><div class="btn-ico-wrap" style="background:rgba(201,168,76,0.12)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.27 2 2 0 012.1.09h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><span>070-9307-5678</span><span class="btn-arr">→</span></a>
+  </div>
+  <div class="ft"><div class="ft-brand">ANYTHING 不動産</div><div class="ft-copy">© 2025 · ANYTHING株式会社</div></div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="section">
+  <div class="about-hero">
+    <div class="avatar-ring" style="width:110px;height:110px;overflow:hidden;border-radius:50%;border:2px solid var(--gold)">
+      <img src="https://lztctfojmuqpsrafoive.supabase.co/storage/v1/object/public/listings-images/trinh-profile.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top" alt="Nguyễn Trinh">
+    </div>
+    <div class="about-name">Nguyễn Trinh</div>
+    <div class="about-role">ANYTHING 不動産 · Chuyên viên tư vấn BĐS</div>
+    <div class="about-tags">
+      <div class="atag"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.3"><path d="M8 2C5.8 2 4 3.8 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="6" r="1.5"/></svg>Đang sống tại Nhật</div>
+      <div class="atag"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.3"><path d="M2 7L8 2l6 5v7H2z"/></svg>BĐS thực chiến 3+ năm</div>
+      <div class="atag"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.3"><circle cx="8" cy="8" r="6"/><path d="M5.5 8s.5-1.5 2.5-1.5S11 8 11 8"/><circle cx="8" cy="11" r=".5" fill="var(--gold)"/></svg>Biên, phiên dịch Việt–Nhật</div>
+    </div>
+  </div>
+  <div class="about-stats">
+    <div class="about-stat"><div class="about-stat-n">6+</div><div class="about-stat-l">Năm KN</div></div>
+    <div class="about-stat"><div class="about-stat-n">3+</div><div class="about-stat-l">Năm BĐS</div></div>
+    <div class="about-stat"><div class="about-stat-n">100%</div><div class="about-stat-l">Tiếng Việt</div></div>
+  </div>
+  <div class="story-block">
+    <div class="story-label">Câu chuyện của tôi</div>
+    <div class="story-text">Mình là <strong>Nguyễn Trinh</strong>, người Việt Nam đang sinh sống và làm việc tại Nhật Bản cùng <strong>ANYTHING株式会社</strong>.<br><br>Những ngày đầu đặt chân đến Nhật, mình hiểu rõ cảm giác <strong>bỡ ngỡ, không biết bắt đầu từ đâu</strong> — đặc biệt khi muốn tìm hiểu về nhà đất, hợp đồng, thủ tục pháp lý toàn bằng tiếng Nhật.<br><br>Sau thời gian làm việc tại công ty phái cử và <strong>hơn 3 năm thực tế tại ANYTHING 不動産</strong>, mình tích lũy kiến thức chuyên sâu về thị trường, hợp đồng mua bán, cho thuê — cùng khả năng <strong>phiên dịch Việt–Nhật chuyên ngành BĐS</strong>.<br><br>Mình ở đây để làm <strong>cầu nối đáng tin cậy</strong> giữa người Việt và thị trường bất động sản Nhật Bản.</div>
+  </div>
+  <div class="srule" style="padding:0 24px 14px"><div class="srule-line"></div><div class="srule-txt">Chuyên môn</div><div class="srule-line"></div></div>
+  <div class="skill-grid">
+    <div class="skill-item"><div class="skill-ico-wrap"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.2"><path d="M2 7L8 2l6 5v7H2z"/><path d="M6 14V9h4v5"/></svg></div><div class="skill-h">BĐS Nhật Bản</div><div class="skill-p">Mua bán, cho thuê, hợp đồng, thủ tục pháp lý</div></div>
+    <div class="skill-item"><div class="skill-ico-wrap"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.2"><path d="M2 4h7v7H2z"/><path d="M7 7h7v7H7z"/></svg></div><div class="skill-h">Phiên dịch Việt–Nhật</div><div class="skill-p">Tài liệu BĐS, hợp đồng, kinh doanh</div></div>
+    <div class="skill-item"><div class="skill-ico-wrap"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.2"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 6h6M5 9h4"/></svg></div><div class="skill-h">Dịch thuật</div><div class="skill-p">Văn bản kinh doanh, email, tài liệu nội bộ</div></div>
+    <div class="skill-item"><div class="skill-ico-wrap"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.2"><circle cx="8" cy="6" r="3"/><path d="M2 14c0-3 2.7-5 6-5s6 2 6 5"/></svg></div><div class="skill-h">Tư vấn A–Z</div><div class="skill-p">Đồng hành từ tìm kiếm đến ký hợp đồng</div></div>
+  </div>
+  <div style="padding:0 16px 20px">
+    <a href="https://www.facebook.com/trinhnguyenbds.jp" class="btn-fb"><div class="btn-ico-wrap" style="background:rgba(255,255,255,0.15)"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><span>Nhắn Facebook</span><span class="btn-arr">→</span></a>
+    <a href="tel:070-9307-5678" class="btn-phone"><div class="btn-ico-wrap" style="background:rgba(201,168,76,0.12)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.27 2 2 0 012.1.09h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><span>070-9307-5678</span><span class="btn-arr">→</span></a>
+  </div>
+  <div class="ft"><div class="ft-brand">ANYTHING 不動産</div><div class="ft-copy">© 2025 · ANYTHING株式会社</div></div>
+</div>
+
+<!-- FORM -->
+<div id="form" class="section">
+  <div class="form-wrap">
+    <div class="page-title">Đăng ký tư vấn miễn phí</div>
+    <div class="page-sub">Điền thông tin — Trinh sẽ liên hệ lại trong 24 giờ bằng tiếng Việt.</div>
+    <div id="form-body">
+
+      <!-- THÔNG TIN CƠ BẢN -->
+      <div class="srule" style="padding:0 0 12px"><div class="srule-line"></div><div class="srule-txt">Thông tin cơ bản</div><div class="srule-line"></div></div>
+      <div class="f-row">
+        <div class="f-group"><label class="f-label">Họ và tên *</label><input class="f-input" id="f-name" type="text" placeholder="Nguyễn Văn A"></div>
+        <div class="f-group"><label class="f-label">Số điện thoại *</label><input class="f-input" id="f-phone" type="tel" placeholder="090-xxxx-xxxx"></div>
+      </div>
+      <div class="f-group"><label class="f-label">Email</label><input class="f-input" id="f-email" type="email" placeholder="email@example.com"></div>
+      <div class="f-group"><label class="f-label">Khu vực quan tâm</label>
+        <select class="f-input" id="f-area" style="background:var(--dark2)">
+          <option value="" disabled selected>-- Chọn khu vực --</option>
+          <option>Osaka / Kansai</option><option>Tokyo / Kanto</option><option>Kobe / Hyogo</option><option>Khu vực khác</option>
+        </select>
+      </div>
+      <div class="f-group"><label class="f-label">Loại BĐS quan tâm</label>
+        <select class="f-input" id="f-type" style="background:var(--dark2)">
+          <option value="" disabled selected>-- Chọn loại --</option>
+          <option>Nhà ở (一戸建て)</option><option>Căn hộ chung cư (マンション)</option><option>Đất thổ cư (土地)</option><option>Chưa xác định</option>
+        </select>
+      </div>
+      <div class="f-group"><label class="f-label">Ngân sách dự kiến</label>
+        <select class="f-input" id="f-budget" style="background:var(--dark2)">
+          <option value="" disabled selected>-- Chọn ngân sách --</option>
+          <option>Dưới 1,000万円</option><option>1,000–2,000万円</option><option>2,000–3,000万円</option><option>Trên 3,000万円</option>
+        </select>
+      </div>
+      <div class="f-group"><label class="f-label">Mục đích mua</label>
+        <select class="f-input" id="f-purpose" style="background:var(--dark2)">
+          <option value="" disabled selected>-- Chọn mục đích --</option>
+          <option>Để ở cho gia đình</option><option>Đầu tư / cho thuê</option><option>Cả hai</option>
+        </select>
+      </div>
+
+      <!-- HÌNH THỨC THANH TOÁN -->
+      <div class="srule" style="padding:16px 0 12px"><div class="srule-line"></div><div class="srule-txt">Hình thức thanh toán</div><div class="srule-line"></div></div>
+      <div class="f-group"><label class="f-label">Bạn dự định thanh toán thế nào?</label>
+        <select class="f-input" id="f-payment" style="background:var(--dark2)" onchange="toggleLoanSection(this.value)">
+          <option value="" disabled selected>-- Chọn hình thức --</option>
+          <option value="cash">Mua bằng tiền mặt</option>
+          <option value="loan">Vay ngân hàng toàn bộ</option>
+          <option value="partial">Trả một phần, còn lại vay ngân hàng</option>
+        </select>
+      </div>
+
+      <!-- PHẦN VAY NGÂN HÀNG (hiện khi chọn vay) -->
+      <div id="loan-section" style="display:none">
+        <div style="background:linear-gradient(135deg,#1a1200,#221900);border:1px solid var(--gold3);padding:14px 16px;margin-bottom:14px">
+          <div style="font-size:9px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:6px">Thông tin ước tính lãi suất</div>
+          <div style="font-size:11px;color:rgba(229,212,160,0.5);line-height:1.7">Những thông tin dưới đây giúp Trinh ước tính điều kiện vay phù hợp nhất cho bạn.</div>
+        </div>
+
+        <div class="f-group"><label class="f-label">1. Loại visa hiện tại</label>
+          <select class="f-input" id="f-visa" style="background:var(--dark2)">
+            <option value="" disabled selected>-- Chọn loại visa --</option>
+            <option>Kỹ thuật / Nhân văn / Nghiệp vụ quốc tế (技人国)</option>
+            <option>Thường trú (永住者)</option>
+            <option>Vĩnh trú phu/thê (永住者の配偶者)</option>
+            <option>Định trú (定住者)</option>
+            <option>Quản lý kinh doanh (経営管理)</option>
+            <option>Loại khác</option>
+          </select>
+        </div>
+        <div class="f-group"><label class="f-label">Thời hạn visa còn lại</label>
+          <input class="f-input" id="f-visa-term" type="text" placeholder="Ví dụ: 3 năm, hết hạn 2027/03">
+        </div>
+
+        <div class="f-group"><label class="f-label">2. Công ty hiện tại — số năm làm việc</label>
+          <input class="f-input" id="f-job-years" type="text" placeholder="Ví dụ: 2 năm 3 tháng">
+        </div>
+        <div class="f-group"><label class="f-label">Hình thức hợp đồng lao động</label>
+          <select class="f-input" id="f-job-type" style="background:var(--dark2)">
+            <option value="" disabled selected>-- Chọn hình thức --</option>
+            <option>Chính thức (正社員 / seishain)</option>
+            <option>Có thời hạn (契約社員)</option>
+            <option>Bán thời gian (パート・アルバイト)</option>
+            <option>Tự kinh doanh / Freelance</option>
+          </select>
+        </div>
+        <div class="f-group"><label class="f-label">CV trước — thời gian làm việc</label>
+          <input class="f-input" id="f-prev-job" type="text" placeholder="Ví dụ: Công ty A — 3 năm, Công ty B — 1 năm 6 tháng">
+        </div>
+
+        <div class="f-group"><label class="f-label">3. Tổng thu nhập 3 năm gần nhất (万円/năm)</label>
+          <input class="f-input" id="f-income" type="text" placeholder="Ví dụ: 350 / 380 / 400 (万円 mỗi năm)">
+        </div>
+
+        <div class="f-group"><label class="f-label">4. Nợ tín dụng chưa trả</label>
+          <select class="f-input" id="f-debt" style="background:var(--dark2)">
+            <option value="" disabled selected>-- Chọn --</option>
+            <option>Không có nợ tín dụng xấu</option>
+            <option>Có nợ tín dụng chưa trả hết</option>
+            <option>Không chắc / chưa kiểm tra</option>
+          </select>
+        </div>
+
+        <div class="f-group"><label class="f-label">5. Ngân hàng nhận lương hàng tháng</label>
+          <input class="f-input" id="f-bank" type="text" placeholder="Ví dụ: みなと銀行, Rakuten Bank, PayPay Bank...">
+        </div>
+
+        <div class="f-group"><label class="f-label">7. Tình trạng hôn nhân</label>
+          <select class="f-input" id="f-married" style="background:var(--dark2)" onchange="toggleSpouseSection(this.value)">
+            <option value="" disabled selected>-- Chọn --</option>
+            <option value="single">Chưa kết hôn</option>
+            <option value="married">Đã kết hôn</option>
+          </select>
+        </div>
+        <div class="f-group"><label class="f-label">Có con nhỏ không?</label>
+          <select class="f-input" id="f-kids" style="background:var(--dark2)">
+            <option value="" disabled selected>-- Chọn --</option>
+            <option>Không có con nhỏ</option>
+            <option>Có 1 con</option>
+            <option>Có 2 con trở lên</option>
+          </select>
+        </div>
+
+        <div id="spouse-section" style="display:none">
+          <div class="f-group"><label class="f-label">8. Vợ/chồng có đi làm và khai thu nhập không?</label>
+            <select class="f-input" id="f-spouse-work" style="background:var(--dark2)" onchange="toggleSpouseIncome(this.value)">
+              <option value="" disabled selected>-- Chọn --</option>
+              <option value="yes">Có đi làm và khai thu nhập</option>
+              <option value="no">Không đi làm / không khai thu nhập</option>
+            </select>
+          </div>
+          <div id="spouse-income-section" style="display:none">
+            <div class="f-group"><label class="f-label">Tổng thu nhập vợ/chồng 1 năm (万円)</label>
+              <input class="f-input" id="f-spouse-income" type="text" placeholder="Ví dụ: 280万円/năm">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="f-group"><label class="f-label">Ghi chú / câu hỏi thêm</label><textarea class="f-input" id="f-note" placeholder="Bạn muốn hỏi thêm điều gì?"></textarea></div>
+      <button class="action-btn" id="submit-btn" onclick="submitForm()">Gửi đăng ký tư vấn →</button>
+      <div class="form-note">Thông tin bảo mật tuyệt đối · Trinh phản hồi trong 24 giờ</div>
+    </div>
+    <div class="success-box" id="form-success">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2" style="margin-bottom:12px"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <div class="result-title">Đã nhận được đăng ký!</div>
+      <div class="result-text">Cảm ơn bạn đã tin tưởng ANYTHING不動産.<br>Trinh sẽ liên hệ trong vòng 24 giờ nhé!</div>
+      <div style="margin-top:16px"><a href="https://www.facebook.com/trinhnguyenbds.jp" class="btn-fb"><div class="btn-ico-wrap" style="background:rgba(255,255,255,0.15)"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><span>Nhắn Facebook nếu cần gấp</span><span class="btn-arr">→</span></a></div>
+    </div>
+  </div>
+  <div class="ft"><div class="ft-brand">ANYTHING不動産</div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px"><div class="ft-copy">© 2025 · ANYTHING株式会社</div><a href="/cdn-cgi/l/email-protection#2551574c4b4d0b4b4a0b464d4c4b51444c654248444c490b464a48" style="font-size:9px;color:rgba(229,212,160,0.4);letter-spacing:.05em;text-decoration:none"><span class="__cf_email__" data-cfemail="6317110a0d0b4d0d0c4d000b0a0d17020a23040e020a0f4d000c0e">[email&#160;protected]</span></a></div></div>
+</div>
+
+<!-- BLOG -->
+<div id="blog" class="section">
+  <div class="blog-wrap">
+    <div class="blog-hero-title">Kiến thức BĐS</div>
+    <div class="blog-hero-sub">Chia sẻ kinh nghiệm mua bán nhà tại Nhật · Cập nhật mỗi tuần</div>
+    <div class="blog-cats">
+      <button class="blog-cat active" onclick="filterBlog('all',this)">Tất cả</button>
+      <button class="blog-cat" onclick="filterBlog('kinh-nghiem',this)">Kinh nghiệm</button>
+      <button class="blog-cat" onclick="filterBlog('vay-ngan-hang',this)">Vay ngân hàng</button>
+      <button class="blog-cat" onclick="filterBlog('phap-ly',this)">Pháp lý</button>
+      <button class="blog-cat" onclick="filterBlog('thi-truong',this)">Thị trường</button>
+    </div>
+    <div id="blog-grid" class="blog-grid"><div class="blog-empty">Đang tải...</div></div>
+  </div>
+  <div class="ft"><div class="ft-brand">ANYTHING不動産</div><div class="ft-copy">© 2025 · ANYTHING株式会社</div></div>
+</div>
+
+<!-- BLOG TAB -->
+<div id="blogtab" class="section">
+  <div class="blog-wrap">
+    <div class="blog-hero-title">Blog</div>
+    <div class="blog-hero-sub">Góc chia sẻ cá nhân · Cuộc sống tại Nhật · Câu chuyện BĐS</div>
+    <div class="blog-cats">
+      <button class="blog-cat active" onclick="filterBlog2('all',this)">Tất cả</button>
+      <button class="blog-cat" onclick="filterBlog2('cuoc-song',this)">Cuộc sống Nhật</button>
+      <button class="blog-cat" onclick="filterBlog2('cau-chuyen',this)">Câu chuyện</button>
+      <button class="blog-cat" onclick="filterBlog2('tips',this)">Tips</button>
+    </div>
+    <div id="blogtab-grid" class="blog-grid"><div class="blog-empty">Đang tải...</div></div>
+  </div>
+  <div class="ft"><div class="ft-brand">ANYTHING不動産</div><div class="ft-copy">© 2025 · ANYTHING株式会社</div></div>
+</div>
+
+<!-- ADMIN -->
+<div id="admin" class="section">
+  <!-- LOGIN SCREEN -->
+  <div id="admin-login-screen" style="padding:40px 24px;display:none">
+    <div style="max-width:320px;margin:0 auto">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;margin-bottom:4px">Admin</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:24px">Nhập mật khẩu để tiếp tục</div>
+      <div class="f-group">
+        <label class="f-label">Mật khẩu</label>
+        <input class="f-input" id="admin-pass-input" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkAdminPass()">
+      </div>
+      <div id="admin-pass-error" style="display:none;font-size:11px;color:rgba(220,80,80,0.8);margin-bottom:10px">Sai mật khẩu, thử lại nhé!</div>
+      <button class="action-btn" onclick="checkAdminPass()">Đăng nhập →</button>
+    </div>
+  </div>
+  <!-- ADMIN CONTENT -->
+  <div id="admin-content" style="display:none">
+    <div class="admin-wrap">
+      <div class="admin-header">Quản lý tin BĐS</div>
+      <div class="admin-sub">Đăng, ẩn hoặc xóa tin bất động sản</div>
+
+      <div class="admin-section-title">Tin đang có</div>
+      <div id="admin-list"><div class="admin-empty">Đang tải...</div></div>
+
+      <div class="admin-section-title" style="margin-top:24px">Đăng tin mới</div>
+      <div class="admin-form">
+        <div class="f-row">
+          <div class="f-group"><label class="f-label">Khu vực (tag) *</label><input class="f-input" id="a-tag" placeholder="Osaka · Namba"></div>
+          <div class="f-group"><label class="f-label">Badge</label><input class="f-input" id="a-badge" placeholder="Hot / Mới / VIP"></div>
+        </div>
+        <div class="f-group"><label class="f-label">Tiêu đề *</label><input class="f-input" id="a-title" placeholder="Nhà phố 2 tầng gần trung tâm Namba"></div>
+        <div class="f-group"><label class="f-label">Địa chỉ chi tiết</label><input class="f-input" id="a-location" placeholder="Osaka · Namba · Cách ga 5 phút đi bộ"></div>
+        <div class="f-row">
+          <div class="f-group"><label class="f-label">Giá (yên)</label><input class="f-input" id="a-price" placeholder="¥ 4,500万"></div>
+          <div class="f-group"><label class="f-label">Giá (VNĐ)</label><input class="f-input" id="a-price-vnd" placeholder="≈ 700 triệu VNĐ"></div>
+        </div>
+        <div class="f-row">
+          <div class="f-group"><label class="f-label">Diện tích</label><input class="f-input" id="a-area" placeholder="85 m²"></div>
+          <div class="f-group"><label class="f-label">Loại nhà</label><input class="f-input" id="a-htype" placeholder="3LDK"></div>
+        </div>
+        <div class="f-row">
+          <div class="f-group"><label class="f-label">Năm xây</label><input class="f-input" id="a-year" placeholder="2019"></div>
+          <div class="f-group"><label class="f-label">Thông tin thêm</label><input class="f-input" id="a-extra" placeholder="Cách ga 5 phút / View biển..."></div>
+        </div>
+        <div class="f-group"><label class="f-label">Mô tả chi tiết</label><textarea class="f-input" id="a-desc" placeholder="Mô tả căn nhà, tiện ích xung quanh..."></textarea></div>
+        <button class="action-btn" id="a-submit" onclick="postListing()">Đăng tin →</button>
+      </div>
+    </div>
+    <div class="ft"><div class="ft-brand">ANYTHING不動産</div><div class="ft-copy">Admin Panel</div></div>
+  </div>
+</div>
+
+<div class="img-fs" id="img-fs" onclick="closeFs()"><button class="img-fs-close" onclick="closeFs()">✕</button><img id="img-fs-img" src="" alt=""></div>
+<!-- MODAL -->
+<div class="modal-bg" id="modal" onclick="closeBg(event)">
+  <div class="modal">
+    <div class="modal-bar"></div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="mc"></div>
+  </div>
+</div>
+
+<script>
+const SUPA_URL='https://lztctfojmuqpsrafoive.supabase.co';
+const SUPA_KEY='sb_publishable_O8AEDG2yUuB9WFa3fQufaw_K8_0v4uD';
+const BUCKET='listings-images';
+
+// Nav
+function showTab(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='blog') loadBlog();
+  if(id==='blogtab') loadBlog2();
+}
+
+// Supabase helpers
+async function supaFetch(path,opts={}){
+  const res=await fetch(SUPA_URL+'/rest/v1/'+path,{
+    headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json','Prefer':'return=representation',...(opts.headers||{})},
+    ...opts
+  });
+  if(!res.ok){const e=await res.text();throw new Error(e);}
+  const txt=await res.text();return txt?JSON.parse(txt):[];
+}
+
+// === LISTINGS ===
+async function loadListings(){
+  try{
+    const data=await supaFetch('listings?is_active=eq.true&order=created_at.desc');
+    if(!data.length){
+      document.querySelector('.cards').innerHTML='<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">Chưa có tin BĐS nào.</div>';
+      return;
+    }
+    document.querySelector('.cards').innerHTML=data.map(function(d){
+      const imgs=d.images?JSON.parse(d.images):[];
+      const thumb=imgs[0]||null;
+      const dq=JSON.stringify(d).replace(/"/g,'&quot;');
+      return '<div class="card" onclick="openModalSupa('+dq+')">'
+        +(thumb?'<img class="card-img" src="'+thumb+'" alt="'+d.title+'" loading="lazy">'
+               :'<div class="card-no-img"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold3)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>')
+        +'<div class="card-inner">'
+        +'<div class="card-header"><div class="card-loc"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M8 2C5.8 2 4 3.8 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="6" r="1.5"/></svg>'+(d.tag||'')+'</div>'
+        +(d.badge?'<div class="card-badge">'+d.badge+'</div>':'')+'</div>'
+        +'<div class="card-title">'+d.title+'</div>'
+        +'<div class="card-specs">'
+        +(d.area?'<div class="spec">'+d.area+'</div>':'')
+        +(d.house_type?'<div class="spec">'+d.house_type+'</div>':'')
+        +(d.year_built?'<div class="spec">'+d.year_built+'</div>':'')
+        +(d.extra_spec?'<div class="spec">'+d.extra_spec+'</div>':'')
+        +'</div>'
+        +'<div class="card-footer"><div><div class="card-price">'+(d.price||'')+'</div><div class="card-price-sub">'+(d.price_vnd||'')+'</div></div>'
+        +'<button class="card-btn">Chi tiết →</button></div>'
+        +'</div></div>';
+    }).join('');
+  }catch(e){console.error('Load listings error:',e);}
+}
+
+function openModalSupa(d){
+  const imgs=d.images?JSON.parse(d.images):[];
+  const imgHtml=imgs.length
+    ?'<div class="modal-imgs"><div class="modal-imgs-title">Ảnh ('+imgs.length+')</div><div class="modal-imgs-grid">'+imgs.map(function(u){return '<img src="'+u+'" loading="lazy" onclick="openFs(this.src)">';}). join('')+'</div></div>'
+    :'';
+  document.getElementById('mc').innerHTML=
+    '<div class="modal-tag">'+(d.tag||'')+'</div>'
+    +'<div class="modal-title">'+d.title+'</div>'
+    +'<div class="modal-loc">'+(d.location||'')+'</div>'
+    +'<div class="modal-price">'+(d.price||'')+'</div><div class="modal-vnd">'+(d.price_vnd||'')+'</div>'
+    +'<div class="modal-grid">'
+    +(d.area?'<div class="modal-spec"><div class="msl">Diện tích</div><div class="msv">'+d.area+'</div></div>':'')
+    +(d.house_type?'<div class="modal-spec"><div class="msl">Loại nhà</div><div class="msv">'+d.house_type+'</div></div>':'')
+    +(d.year_built?'<div class="modal-spec"><div class="msl">Năm xây</div><div class="msv">'+d.year_built+'</div></div>':'')
+    +(d.extra_spec?'<div class="modal-spec"><div class="msl">Thông tin thêm</div><div class="msv">'+d.extra_spec+'</div></div>':'')
+    +'</div>'
+    +'<div class="modal-desc">'+(d.description||'')+'</div>'
+    +imgHtml
+    +'<a href="https://www.facebook.com/trinhnguyenbds.jp" class="btn-fb" style="margin-bottom:10px"><div class="btn-ico-wrap" style="background:rgba(255,255,255,0.15)"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><span>Hỏi qua Facebook</span><span class="btn-arr">→</span></a>'
+    +'<a href="tel:070-9307-5678" class="btn-phone"><div class="btn-ico-wrap" style="background:rgba(201,168,76,0.12)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.27 2 2 0 012.1.09h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><span>Gọi 070-9307-5678</span><span class="btn-arr">→</span></a>';
+  document.getElementById('modal').classList.add('open');
+}
+
+// Fullscreen image
+function openFs(url){document.getElementById('img-fs-img').src=url;document.getElementById('img-fs').classList.add('open');}
+function closeFs(){document.getElementById('img-fs').classList.remove('open');}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+function closeBg(e){if(e.target===document.getElementById('modal'))closeModal();}
+
+// === FORM ===
+function sel(el,g){
+  document.getElementById(g).querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function toggleLoanSection(v){document.getElementById('loan-section').style.display=(v==='loan'||v==='partial')?'block':'none';}
+function toggleSpouseSection(v){document.getElementById('spouse-section').style.display=(v==='married')?'block':'none';}
+function toggleSpouseIncome(v){document.getElementById('spouse-income-section').style.display=(v==='yes')?'block':'none';}
+function g(id){const el=document.getElementById(id);return el?el.value||'':''}
+async function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  if(!name||!phone){alert('Vui lòng điền họ tên và số điện thoại nhé!');return;}
+  const btn=document.getElementById('submit-btn');
+  btn.disabled=true;btn.textContent='Đang gửi...';
+  const payment=g('f-payment');
+  const isLoan=payment==='loan'||payment==='partial';
+  let msg='=== ĐĂNG KÝ TƯ VẤN MIỄN PHÍ ===\n\n';
+  msg+='Tên: '+name+'\nĐiện thoại: '+phone+'\nEmail: '+(g('f-email')||'Không có')+'\n';
+  msg+='Khu vực: '+(g('f-area')||'Chưa chọn')+'\nLoại BĐS: '+(g('f-type')||'Chưa chọn')+'\n';
+  msg+='Ngân sách: '+(g('f-budget')||'Chưa chọn')+'\nMục đích: '+(g('f-purpose')||'Chưa chọn')+'\n';
+  msg+='Hình thức TT: '+(payment||'Chưa chọn')+'\n';
+  if(isLoan){
+    msg+='\n--- THÔNG TIN VAY NGÂN HÀNG ---\n';
+    msg+='Loại visa: '+(g('f-visa')||'Chưa điền')+'\nThời hạn: '+(g('f-visa-term')||'Chưa điền')+'\n';
+    msg+='Số năm làm CT: '+(g('f-job-years')||'Chưa điền')+'\nHĐ lao động: '+(g('f-job-type')||'Chưa điền')+'\n';
+    msg+='CV trước: '+(g('f-prev-job')||'Chưa điền')+'\n';
+    msg+='Thu nhập 3 năm: '+(g('f-income')||'Chưa điền')+'\n';
+    msg+='Nợ tín dụng: '+(g('f-debt')||'Chưa điền')+'\nNgân hàng nhận lương: '+(g('f-bank')||'Chưa điền')+'\n';
+    msg+='Hôn nhân: '+(g('f-married')||'Chưa điền')+'\nCon nhỏ: '+(g('f-kids')||'Chưa điền')+'\n';
+    if(document.getElementById('f-married')&&document.getElementById('f-married').value==='married'){
+      msg+='Vợ/chồng đi làm: '+(g('f-spouse-work')||'Chưa điền')+'\n';
+      if(g('f-spouse-work')==='yes') msg+='Thu nhập vợ/chồng: '+(g('f-spouse-income')||'Chưa điền')+'\n';
+    }
+  }
+  msg+='\nGhi chú: '+(g('f-note')||'Không có');
+  const email=g('f-email')||['noreply','anything-fudousan.com'].join('@');
+  try{
+    await fetch('https://formsubmit.co/ajax/'+['trinh.no.chintai','gmail.com'].join('@'),{
+      method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name,email,_subject:'[ANYTHING不動産] Đăng ký tư vấn mới — '+name,message:msg,_captcha:'false'})
+    });
+  }catch(e){}
+  document.getElementById('form-body').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+
+// === ADMIN ===
+const ADMIN_PASS='anything2025';
+let adminLoggedIn=false;
+function showAdminTab(btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('admin').classList.add('active');
+  btn.classList.add('active');
+  if(!adminLoggedIn){
+    document.getElementById('admin-login-screen').style.display='block';
+    document.getElementById('admin-content').style.display='none';
+  }else{loadAdminListings();}
+}
+function checkAdminPass(){
+  const pass=document.getElementById('admin-pass-input').value;
+  if(pass===ADMIN_PASS){
+    adminLoggedIn=true;
+    document.getElementById('admin-login-screen').style.display='none';
+    document.getElementById('admin-content').style.display='block';
+    loadAdminListings();
+  }else{
+    document.getElementById('admin-pass-error').style.display='block';
+    document.getElementById('admin-pass-input').value='';
+  }
+}
+async function loadAdminListings(){
+  const container=document.getElementById('admin-list');
+  container.innerHTML='<div style="color:var(--muted);font-size:12px;padding:10px">Đang tải...</div>';
+  try{
+    const data=await supaFetch('listings?order=created_at.desc');
+    if(!data.length){container.innerHTML='<div class="admin-empty">Chưa có tin nào.</div>';return;}
+    container.innerHTML=data.map(function(d){
+      return '<div class="admin-listing-card" data-id="'+d.id+'" data-active="'+d.is_active+'">'
+        +'<div class="admin-listing-info"><div class="admin-listing-title">'+d.title+'</div>'
+        +'<div class="admin-listing-meta">'+(d.tag||'')+' · '+(d.price||'')+' · <span class="'+(d.is_active?'badge-active':'badge-inactive')+'">'+(d.is_active?'Đang hiển thị':'Đã ẩn')+'</span></div></div>'
+        +'<div class="admin-listing-actions">'
+        +'<button class="btn-toggle" onclick="toggleListingEl(this)">'+(d.is_active?'Ẩn':'Hiện')+'</button>'
+        +'<button class="btn-del" onclick="deleteListingEl(this)">Xóa</button>'
+        +'</div></div>';
+    }).join('');
+  }catch(e){container.innerHTML='<div class="admin-empty" style="color:rgba(220,80,80,0.7)">Lỗi: '+e.message+'</div>';}
+}
+async function postListing(){
+  const title=document.getElementById('a-title').value.trim();
+  if(!title){alert('Vui lòng nhập tiêu đề!');return;}
+  const btn=document.getElementById('a-submit');
+  btn.disabled=true;btn.textContent='Đang đăng...';
+  try{
+    await supaFetch('listings',{method:'POST',body:JSON.stringify({
+      tag:document.getElementById('a-tag').value.trim(),
+      title,
+      location:document.getElementById('a-location').value.trim(),
+      price:document.getElementById('a-price').value.trim(),
+      price_vnd:document.getElementById('a-price-vnd').value.trim(),
+      area:document.getElementById('a-area').value.trim(),
+      house_type:document.getElementById('a-htype').value.trim(),
+      year_built:document.getElementById('a-year').value.trim(),
+      extra_spec:document.getElementById('a-extra').value.trim(),
+      description:document.getElementById('a-desc').value.trim(),
+      badge:document.getElementById('a-badge').value.trim(),
+      images:uploadedImages.length?JSON.stringify(uploadedImages):null,
+      is_active:true
+    })});
+    alert('Đăng tin thành công!');
+    ['a-tag','a-title','a-location','a-price','a-price-vnd','a-area','a-htype','a-year','a-extra','a-desc','a-badge'].forEach(function(id){document.getElementById(id).value='';});
+    uploadedImages=[];renderPreviews();
+    loadAdminListings();loadListings();
+  }catch(e){alert('Lỗi: '+e.message);}
+  btn.disabled=false;btn.textContent='Đăng tin →';
+}
+async function deleteListing(id){
+  if(!confirm('Xóa tin này?'))return;
+  await supaFetch('listings?id=eq.'+id,{method:'DELETE'});
+  loadAdminListings();loadListings();
+}
+async function toggleListing(id,current){
+  await supaFetch('listings?id=eq.'+id,{method:'PATCH',body:JSON.stringify({is_active:!current})});
+  loadAdminListings();loadListings();
+}
+async function deleteListingEl(btn){
+  const card=btn.closest('[data-id]');
+  const id=card.dataset.id;
+  if(!confirm('Xóa tin này?'))return;
+  await supaFetch('listings?id=eq.'+id,{method:'DELETE'});
+  loadAdminListings();loadListings();
+}
+async function toggleListingEl(btn){
+  const card=btn.closest('[data-id]');
+  const id=card.dataset.id;
+  const current=card.dataset.active==='true';
+  await supaFetch('listings?id=eq.'+id,{method:'PATCH',body:JSON.stringify({is_active:!current})});
+  loadAdminListings();loadListings();
+}
+
+// Image upload
+let uploadedImages=[];
+async function supaUpload(file){
+  const ext=file.name.split('.').pop();
+  const fname=Date.now()+'_'+Math.random().toString(36).slice(2)+'.'+ext;
+  const res=await fetch(SUPA_URL+'/storage/v1/object/'+BUCKET+'/'+fname,{
+    method:'POST',
+    headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':file.type},
+    body:file
+  });
+  if(!res.ok){const e=await res.text();throw new Error(e);}
+  return SUPA_URL+'/storage/v1/object/public/'+BUCKET+'/'+fname;
+}
+function handleDrop(e){
+  e.preventDefault();
+  document.getElementById('upload-area').classList.remove('dragging');
+  handleFiles(e.dataTransfer.files);
+}
+async function handleFiles(files){
+  const arr=Array.from(files).slice(0,15-uploadedImages.length);
+  if(!arr.length)return;
+  document.getElementById('img-uploading').style.display='block';
+  for(const file of arr){
+    try{const url=await supaUpload(file);uploadedImages.push(url);renderPreviews();}
+    catch(e){alert('Lỗi upload: '+e.message);}
+  }
+  document.getElementById('img-uploading').style.display='none';
+}
+function renderPreviews(){
+  document.getElementById('img-previews').innerHTML=uploadedImages.map(function(url,i){
+    return '<div class="img-preview"><img src="'+url+'" alt="ảnh '+(i+1)+'"><button class="img-preview-del" onclick="removeImg('+i+')">✕</button></div>';
+  }).join('');
+}
+async function removeImg(i){
+  uploadedImages.splice(i,1);renderPreviews();
+}
+
+// DOMContentLoaded
+document.addEventListener('DOMContentLoaded',function(){
+  loadListings();
+  if(window.location.hash==='#admin'){
+    document.getElementById('admin-nav-btn').style.display='flex';
+  }
+  let hdTaps=0,hdTimer;
+  document.querySelector('.hd').addEventListener('click',function(){
+    hdTaps++;clearTimeout(hdTimer);
+    hdTimer=setTimeout(function(){hdTaps=0;},1500);
+    if(hdTaps>=5){document.getElementById('admin-nav-btn').style.display='flex';hdTaps=0;}
+  });
+});
+
+// === BLOG — KIẾN THỨC BĐS ===
+let allPosts=[];
+async function loadBlog(){
+  try{
+    const data=await supaFetch('blog_posts?is_published=eq.true&order=created_at.desc');
+    allPosts=data;renderBlog(data);
+  }catch(e){renderBlog([]);}
+}
+function filterBlog(cat,btn){
+  document.querySelectorAll('#blog .blog-cat').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  renderBlog(cat==='all'?allPosts:allPosts.filter(function(p){return p.category===cat;}));
+}
+function renderBlog(posts){
+  const grid=document.getElementById('blog-grid');
+  if(!posts.length){grid.innerHTML='<div class="blog-empty">Chưa có bài viết nào.<br>Vào Admin để đăng bài đầu tiên!</div>';return;}
+  grid.innerHTML=posts.map(function(p){
+    const d=new Date(p.created_at).toLocaleDateString('vi-VN');
+    const dq=JSON.stringify(p).replace(/"/g,'&quot;');
+    return '<div class="blog-card" onclick="openBlogPost('+dq+')">'
+      +(p.thumbnail?'<img class="blog-card-img" src="'+p.thumbnail+'" loading="lazy">'
+        :'<div class="blog-card-img-placeholder"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold3)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>')
+      +'<div class="blog-card-body"><div class="blog-card-cat">'+(p.category_label||'Kiến thức')+'</div>'
+      +'<div class="blog-card-title">'+p.title+'</div>'
+      +'<div class="blog-card-date">'+d+'</div></div></div>';
+  }).join('');
+}
+function openBlogPost(p){
+  const date=new Date(p.created_at).toLocaleDateString('vi-VN',{year:'numeric',month:'long',day:'numeric'});
+  const imgs=p.images?JSON.parse(p.images):[];
+  const imgGallery=imgs.length>1
+    ?'<div class="blog-modal-imgs"><div class="blog-modal-imgs-title">Ảnh ('+imgs.length+')</div>'
+      +imgs.map(function(u){return '<img src="'+u+'" loading="lazy" onclick="openFs(this.src)">';}).join('')
+      +'</div>'
+    :'';
+  document.getElementById('mc').innerHTML=
+    (p.thumbnail?'<img class="blog-modal-img" src="'+p.thumbnail+'" alt="'+p.title+'">':'')
+    +'<div class="blog-modal-cat">'+(p.category_label||'Kiến thức BĐS')+'</div>'
+    +'<div class="blog-modal-title">'+p.title+'</div>'
+    +'<div class="blog-modal-date">'+date+'</div>'
+    +'<div class="blog-modal-content">'+((p.content||'').replace(/\n/g,'<br>'))+'</div>'
+    +imgGallery;
+  document.getElementById('modal').classList.add('open');
+}
+
+// === BLOG TAB ===
+let allPosts2=[];
+async function loadBlog2(){
+  try{
+    const data=await supaFetch('blog_posts2?is_published=eq.true&order=created_at.desc');
+    allPosts2=data;renderBlog2(data);
+  }catch(e){renderBlog2([]);}
+}
+function filterBlog2(cat,btn){
+  document.querySelectorAll('#blogtab .blog-cat').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  renderBlog2(cat==='all'?allPosts2:allPosts2.filter(function(p){return p.category===cat;}));
+}
+function renderBlog2(posts){
+  const grid=document.getElementById('blogtab-grid');
+  if(!posts.length){grid.innerHTML='<div class="blog-empty">Chưa có bài viết nào.</div>';return;}
+  grid.innerHTML=posts.map(function(p){
+    const d=new Date(p.created_at).toLocaleDateString('vi-VN');
+    const dq=JSON.stringify(p).replace(/"/g,'&quot;');
+    return '<div class="blog-card" onclick="openBlogPost2('+dq+')">'
+      +(p.thumbnail?'<img class="blog-card-img" src="'+p.thumbnail+'" loading="lazy">'
+        :'<div class="blog-card-img-placeholder"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold3)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>')
+      +'<div class="blog-card-body"><div class="blog-card-cat">'+(p.category_label||'Blog')+'</div>'
+      +'<div class="blog-card-title">'+p.title+'</div>'
+      +'<div class="blog-card-date">'+d+'</div></div></div>';
+  }).join('');
+}
+function openBlogPost2(p){
+  const date=new Date(p.created_at).toLocaleDateString('vi-VN',{year:'numeric',month:'long',day:'numeric'});
+  const imgs=p.images?JSON.parse(p.images):[];
+  const imgGallery=imgs.length>1
+    ?'<div class="blog-modal-imgs"><div class="blog-modal-imgs-title">Ảnh ('+imgs.length+')</div>'
+      +imgs.map(function(u){return '<img src="'+u+'" loading="lazy" onclick="openFs(this.src)">';}).join('')
+      +'</div>'
+    :'';
+  document.getElementById('mc').innerHTML=
+    (p.thumbnail?'<img class="blog-modal-img" src="'+p.thumbnail+'" alt="'+p.title+'">':'')
+    +'<div class="blog-modal-cat">'+(p.category_label||'Blog')+'</div>'
+    +'<div class="blog-modal-title">'+p.title+'</div>'
+    +'<div class="blog-modal-date">'+date+'</div>'
+    +'<div class="blog-modal-content">'+((p.content||'').replace(/\n/g,'<br>'))+'</div>'
+    +imgGallery;
+  document.getElementById('modal').classList.add('open');
+}
+</script>
+
+</body>
+</html>
