@@ -231,9 +231,9 @@ function logout(){
 function showTab(id,btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
-  const allTabs=['post','manage','kienthuc','kienthuc-manage','blog','blog-manage'];
+  var allTabs=['post','manage','kienthuc','kienthuc-manage','blog','blog-manage'];
   allTabs.forEach(function(t){
-    const el=document.getElementById('tab-'+t);
+    var el=document.getElementById('tab-'+t);
     if(el) el.style.display=(id===t)?'block':'none';
   });
   if(id==='manage') loadManage();
