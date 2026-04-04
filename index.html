@@ -965,7 +965,7 @@ function openBlogPost(p){
     +'<div class="blog-modal-cat">'+(p.category_label||'Kiến thức BĐS')+'</div>'
     +'<div class="blog-modal-title">'+p.title+'</div>'
     +'<div class="blog-modal-date">'+date+'</div>'
-    +'<div class="blog-modal-content">'+((p.content||'').replace(/\n/g,'<br>'))+'</div>'
+    +'<div class="blog-modal-content">'+linkify(p.content||'')+'</div>'
     +imgGallery;
   document.getElementById('modal').classList.add('open');
 }
@@ -1010,7 +1010,7 @@ function openBlogPost2(p){
     +'<div class="blog-modal-cat">'+(p.category_label||'Blog')+'</div>'
     +'<div class="blog-modal-title">'+p.title+'</div>'
     +'<div class="blog-modal-date">'+date+'</div>'
-    +'<div class="blog-modal-content">'+((p.content||'').replace(/\n/g,'<br>'))+'</div>'
+    +'<div class="blog-modal-content">'+linkify(p.content||'')+'</div>'
     +imgGallery;
   document.getElementById('modal').classList.add('open');
 }
