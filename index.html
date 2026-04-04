@@ -1014,6 +1014,12 @@ function openBlogPost2(p){
     +imgGallery;
   document.getElementById('modal').classList.add('open');
 }
+
+function linkify(text){
+  return text
+    .replace(/\n/g,'<br>')
+    .replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;word-break:break-all;">$1</a>');
+}
 </script>
 
 </body>
