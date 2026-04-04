@@ -69,6 +69,7 @@ body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;
 .card-footer{display:flex;align-items:flex-end;justify-content:space-between}
 .card-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--gold);line-height:1}
 .card-price-sub{font-size:9px;color:var(--muted);margin-top:3px}
+.card-date{font-size:9px;color:rgba(229,212,160,0.3);margin-top:4px;letter-spacing:.05em}
 .card-btn{font-size:10px;letter-spacing:.12em;color:var(--gold);border:1px solid var(--gold3);padding:7px 14px;text-transform:uppercase;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s,color .15s}
 .card-btn:hover{background:var(--gold);color:var(--dark)}
 
@@ -696,7 +697,7 @@ async function loadListings(){
         +(d.year_built?'<div class="spec">'+d.year_built+'</div>':'')
         +(d.extra_spec?'<div class="spec">'+d.extra_spec+'</div>':'')
         +'</div>'
-        +'<div class="card-footer"><div><div class="card-price">'+(d.price||'')+'</div><div class="card-price-sub">'+(d.price_vnd||'')+'</div></div>'
+        +'<div class="card-footer"><div><div class="card-price">'+(d.price||'')+'</div><div class="card-price-sub">'+(d.price_vnd||'')+'</div><div class="card-date">'+(d.created_at?new Date(d.created_at).toLocaleDateString('vi-VN'):'')+'</div></div>'
         +'<button class="card-btn">Chi tiết →</button></div>'
         +'</div></div>';
     }).join('');
@@ -711,7 +712,7 @@ function openModalSupa(d){
   document.getElementById('mc').innerHTML=
     '<div class="modal-tag">'+(d.tag||'')+'</div>'
     +'<div class="modal-title">'+d.title+'</div>'
-    +'<div class="modal-loc">'+(d.location||'')+'</div>'
+    +'<div class="modal-loc">'+(d.location||'')+'</div>'+(d.created_at?'<div style="font-size:10px;color:rgba(229,212,160,0.35);margin-bottom:8px">Đăng ngày '+new Date(d.created_at).toLocaleDateString('vi-VN',{year:"numeric",month:"long",day:"numeric"})+'</div>':'')
     +'<div class="modal-price">'+(d.price||'')+'</div><div class="modal-vnd">'+(d.price_vnd||'')+'</div>'
     +'<div class="modal-grid">'
     +(d.area?'<div class="modal-spec"><div class="msl">Diện tích</div><div class="msv">'+d.area+'</div></div>':'')
