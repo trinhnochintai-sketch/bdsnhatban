@@ -720,7 +720,7 @@ function openModalSupa(d){
     +(d.year_built?'<div class="modal-spec"><div class="msl">Năm xây</div><div class="msv">'+d.year_built+'</div></div>':'')
     +(d.extra_spec?'<div class="modal-spec"><div class="msl">Thông tin thêm</div><div class="msv">'+d.extra_spec+'</div></div>':'')
     +'</div>'
-    +'<div class="modal-desc">'+(d.description||'')+'</div>'
+    +'<div class="modal-desc">'+((d.description||'').replace(/\n/g,'<br>'))+'</div>'
     +imgHtml
     +'<a href="https://www.facebook.com/trinhnguyenbds.jp" class="btn-fb" style="margin-bottom:10px"><div class="btn-ico-wrap" style="background:rgba(255,255,255,0.15)"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><span>Hỏi qua Facebook</span><span class="btn-arr">→</span></a>'
     +'<a href="tel:070-9307-5678" class="btn-phone"><div class="btn-ico-wrap" style="background:rgba(201,168,76,0.12)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.27 2 2 0 012.1.09h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><span>Gọi 070-9307-5678</span><span class="btn-arr">→</span></a>';
